@@ -1,45 +1,39 @@
-/* ==============
-   CONFIGURAÇÕES
-   ============== */
-/* Substitua pelo número real (apenas dígitos, com DDI). Ex: 5511999999999 */
-const WHATSAPP_NUMBER = "5511999999999";
+/* ======================
+   CONFIGURAÇÃO RÁPIDA
+   Substituir pelo número real com DDI (apenas dígitos): ex: 5511999999999
+   ====================== */
+const WHATSAPP_NUMBER = "5511999999999"; // <<< substitui aqui
+const DEFAULT_MESSAGE = "Olá Maristela, gostaria de agendar uma consulta. Pode me ajudar?";
 
-/* Mensagem padrão curta (encodeURIComponent será aplicado) */
-const DEFAULT_MESSAGE = "Olá Maristela, quero agendar uma consulta. Pode me ajudar?";
-
-/* ==============
-   UTILIDADES
-   ============== */
-function whatsappUrlFor(text, phone = WHATSAPP_NUMBER) {
-  const base = "https://api.whatsapp.com/send";
-  const encoded = encodeURIComponent(text);
-  return `${base}?phone=${phone}&text=${encoded}`;
+/* monta URL do WhatsApp */
+function whatsappUrlFor(text, phone = WHATSAPP_NUMBER){
+  return `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(text)}`;
 }
 
-/* Ano no rodapé */
+/* atualiza links e floating button */
 document.addEventListener("DOMContentLoaded", () => {
+  // ano rodapé
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
-  // Atualiza links de WhatsApp (botões)
-  const btns = [
-    document.getElementById("btn-whatsapp-hero"),
-    document.getElementById("btn-whatsapp-about"),
-    document.getElementById("btn-whatsapp-approach"),
-    document.getElementById("btn-whatsapp-schedule"),
-    document.getElementById("footer-whatsapp")
+  // atualiza botões
+  const updateBtns = [
+    "btn-whatsapp-hero",
+    "btn-whatsapp-about",
+    "btn-whatsapp-approach",
+    "btn-whatsapp-schedule",
+    "footer-whatsapp"
   ];
-  btns.forEach(b => {
-    if (b) b.setAttribute("href", whatsappUrlFor(DEFAULT_MESSAGE));
+  updateBtns.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.setAttribute("href", whatsappUrlFor(DEFAULT_MESSAGE));
   });
 
-  // Floating whatsapp already set in HTML, but ensure uses number variable
+  // floating wa
   const float = document.getElementById("whatsapp-floating");
-  if (float) {
-    float.setAttribute("href", whatsappUrlFor(DEFAULT_MESSAGE));
-  }
+  if (float) float.setAttribute("href", whatsappUrlFor(DEFAULT_MESSAGE));
 
-  // Links dentro dos cards de serviço
+  // cards serviços
   document.querySelectorAll(".svc-card .link").forEach(a => {
     a.addEventListener("click", (e) => {
       e.preventDefault();
@@ -50,69 +44,44 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-/* ==============
-   FORMULÁRIO: cria mensagem e abre WhatsApp
-   ============== */
+/* formulário de leads -> abre WhatsApp com mensagem preenchida */
 const leadForm = document.getElementById("lead-form");
-if (leadForm) {
-  leadForm.addEventListener("submit", function (ev) {
+if (leadForm){
+  leadForm.addEventListener("submit", (ev) => {
     ev.preventDefault();
-    const name = document.getElementById("lead-name").value.trim();
-    const phone = document.getElementById("lead-phone").value.trim();
-    const service = document.getElementById("lead-service").value.trim();
-    const message = document.getElementById("lead-message").value.trim();
+    const name = (document.getElementById("lead-name") || {}).value || "";
+    const phone = (document.getElementById("lead-phone") || {}).value || "";
+    const service = (document.getElementById("lead-service") || {}).value || "";
+    const message = (document.getElementById("lead-message") || {}).value || "";
 
-    // Mensagem pré-formatada
     let text = `Olá Maristela, sou ${name || "um interessado"}. Tenho interesse em *${service}*.`;
     if (phone) text += ` Meu WhatsApp é ${phone}.`;
     if (message) text += `\n\nMensagem: ${message}`;
 
-    // abre WhatsApp
     window.open(whatsappUrlFor(text), "_blank");
   });
 }
 
-/* ==============
-   SCROLL REVEAL + INTERSECTION OBSERVER
-   ============== */
+/* scroll reveal com IntersectionObserver */
 const panels = document.querySelectorAll(".panel-animated");
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(ent => {
-    if (ent.isIntersecting) {
+    if (ent.isIntersecting){
       ent.target.classList.add("in-view");
     }
   });
 }, { threshold: 0.12 });
-
 panels.forEach(p => observer.observe(p));
 
-/* ==============
-   PARALLAX IMAGES (suave)
-   ============== */
+/* parallax images (suave) */
 const parallaxEls = document.querySelectorAll(".parallax");
 window.addEventListener("scroll", () => {
   const scrolled = window.scrollY;
   parallaxEls.forEach(el => {
-    const speed = parseFloat(el.dataset.speed || "0.08");
-    const y = (scrolled - el.getBoundingClientRect().top) * speed;
+    const speed = parseFloat(el.dataset.speed || "0.06");
+    // calcular um deslocamento limitado
+    const rect = el.getBoundingClientRect();
+    const y = (scrolled - rect.top) * speed;
     el.style.transform = `translateY(${y}px)`;
   });
 }, { passive: true });
-
-/* ==============
-   ESCOLHA RÁPIDA: botões que abrem WA com serviço
-   ============== */
-document.querySelectorAll('[id^="btn-whatsapp"], [id^="footer-whatsapp"]').forEach(btn => {
-  btn && btn.addEventListener("click", (e) => {
-    // leave default href behavior handled earlier
-  });
-});
-
-/* ==============
-   Acessibilidade: fechar menus / teclas
-   ============== */
-document.addEventListener("keyup", (e) => {
-  if (e.key === "Escape") {
-    // placeholder: se futuramente houver modal, esc fecha
-  }
-});
