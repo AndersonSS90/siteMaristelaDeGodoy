@@ -137,5 +137,8 @@ body{
 
 .actions{padding-top:10px}
 
+.link{color:--vermelho-quente; text-decoration:none;}
+.link:hover{text-decoration:underline;}
+
 /* parallax minor transform smoothing */
 .parallax{transform:translateY(0);transition:transform .9s var(--ease)}
