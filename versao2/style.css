@@ -71,7 +71,7 @@ body{
 #whatsapp-floating svg{width:26px;height:26px;display:block;filter:drop-shadow(0 6px 12px rgba(0,0,0,.12))}
 
 /* panels */
-.panel{position:relative;padding:5.2rem 0;overflow:hidden}
+.panel{position:relative;padding:2rem 0;overflow:hidden}
 .panel .section-sep{position:absolute;left:0;right:0;bottom:-1px;height:80px;display:block}
 .panel-animated{opacity:0;transform:translateY(18px);transition:opacity .9s var(--ease), transform .9s var(--ease)}
 .panel-animated.in-view{opacity:1;transform:none}
