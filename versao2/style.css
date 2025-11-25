@@ -137,7 +137,7 @@ body{
 
 .actions{padding-top:10px}
 
-a.link{color:--vermelho-quente; text-decoration:none;}
+a.link{color:var(--vermelho-quente); text-decoration:none;}
 a.link:hover{text-decoration:underline;}
 
 /* parallax minor transform smoothing */
