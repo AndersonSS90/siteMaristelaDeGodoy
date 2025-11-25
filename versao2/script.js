@@ -1,16 +1,10 @@
-/* ======================
-   CONFIGURAÇÃO RÁPIDA
-   Substituir pelo número real com DDI (apenas dígitos): ex: 5511999999999
-   ====================== */
-const WHATSAPP_NUMBER = "5511999999999"; // <<< substitui aqui
+const WHATSAPP_NUMBER = "555182730771";
 const DEFAULT_MESSAGE = "Olá Maristela, gostaria de agendar uma consulta. Pode me ajudar?";
 
-/* monta URL do WhatsApp */
 function whatsappUrlFor(text, phone = WHATSAPP_NUMBER){
   return `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(text)}`;
 }
 
-/* atualiza links e floating button */
 document.addEventListener("DOMContentLoaded", () => {
   // ano rodapé
   const year = document.getElementById("year");
@@ -29,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (el) el.setAttribute("href", whatsappUrlFor(DEFAULT_MESSAGE));
   });
 
-  // floating wa
   const float = document.getElementById("whatsapp-floating");
   if (float) float.setAttribute("href", whatsappUrlFor(DEFAULT_MESSAGE));
 
