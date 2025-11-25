@@ -98,7 +98,7 @@ body{
 /* services */
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:1.2rem}
 .svc-card{background:var(--card);border-radius:14px;padding:1rem;display:flex;flex-direction:column;gap:.7rem;box-shadow:0 14px 36px rgba(0,0,0,.04)}
-.svc-card img{width:100%;height:100%;object-fit:cover;border-radius:10px}
+.svc-card img{width:100%;height:80%;object-fit:cover;border-radius:10px}
 
 /* schedule */
 .schedule-grid{display:grid;grid-template-columns:420px 1fr;gap:1.4rem;align-items:center}
