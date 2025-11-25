@@ -135,5 +135,7 @@ body{
   .top-nav{display:none}
 }
 
+.actions{padding-top:10px}
+
 /* parallax minor transform smoothing */
 .parallax{transform:translateY(0);transition:transform .9s var(--ease)}
