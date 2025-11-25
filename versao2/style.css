@@ -92,7 +92,7 @@ body{
 .approach-grid{display:grid;grid-template-columns:1fr 420px;gap:1.8rem;align-items:center}
 .tiles{display:flex;gap:1rem;margin-top:1rem}
 .tile{flex:1;background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(250,248,246,1));padding:1rem;border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.04);text-align:center}
-.tile img{width:96px;height:96px;object-fit:cover;border-radius:10px;display:block;margin:0 auto 0.6rem}
+.tile img{width:72px;height:72px;object-fit:cover;border-radius:10px;display:block;margin:0 auto 0.6rem}
 .approach-photo img{width:100%;height:100%;object-fit:cover;border-radius:10px;display:block;margin:0 auto 0.6rem}
 
 /* services */
