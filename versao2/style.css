@@ -134,6 +134,8 @@ body{
   .wrap{padding:1.2rem}
   .top-nav{display:none}
   .about-photo img{display:none}
+  .approach-photo img{display:none}
+  .schedule-photo img{display:none}
 }
 
 .actions{padding-top:10px}
