@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = "555182730771";
+const WHATSAPP_NUMBER = "555174018079";
 const DEFAULT_MESSAGE = "Olá Maristela, gostaria de agendar uma consulta. Pode me ajudar?";
 
 function whatsappUrlFor(text, phone = WHATSAPP_NUMBER){
