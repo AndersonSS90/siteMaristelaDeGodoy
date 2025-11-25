@@ -72,16 +72,3 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 panels.forEach(p => observer.observe(p));
-
-/* parallax images (suave) */
-const parallaxEls = document.querySelectorAll(".parallax");
-window.addEventListener("scroll", () => {
-  const scrolled = window.scrollY;
-  parallaxEls.forEach(el => {
-    const speed = parseFloat(el.dataset.speed || "0.06");
-    // calcular um deslocamento limitado
-    const rect = el.getBoundingClientRect();
-    const y = (scrolled - rect.top) * speed;
-    el.style.transform = `translateY(${y}px)`;
-  });
-}, { passive: true });
