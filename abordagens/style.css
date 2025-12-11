@@ -1,3 +1,22 @@
+:root{
+  /* palette provided by you, plus soft variants */
+  --bordo: #BB2F38;           /* destaque forte */
+  --vermelho-quente: #BB2531;/* CTA alternativo */
+  --amarelo: #E8C46C;        /* suave, para fundos e chips */
+  --dourado: #D69F2A;        /* destaque secundário */
+
+  /* soft backgrounds (lightened) */
+  --bg: #fbf7f6;
+  --bg-soft: rgba(230,200,120,0.14); /* subtle yellow wash */
+  --bg-accent: rgba(187,47,56,0.06); /* very soft bordo wash */
+  --card: #ffffff;
+  --text: #2b2b2b;
+  --muted: #6d6d6d;
+  --radius: 16px;
+  --max: 1100px;
+  --ease: cubic-bezier(.2,.9,.3,1);
+}
+
 /* CAROUSEL */
 .carousel {
   position: relative;
