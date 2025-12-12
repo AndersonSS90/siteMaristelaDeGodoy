@@ -1,67 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Terapia Sistêmica</title>
-  <link rel="stylesheet" href="./style.css">
-</head>
-
-<body>
-<header class="site-header">
-  <div class="wrap header-inner">
-    <div class="brand">
-      <h1>Terapia Sistêmica</h1>
-      <p class="small-muted">Maristela de Godoy · Psicóloga</p>
-    </div>
-  </div>
-</header>
-
-<main>
-<section class="panel" data-theme="light">
-  <div class="wrap info-grid">
-
-    <div class="info-text">
-      <h2>Terapia Sistêmica</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac magna vel est
-        scelerisque facilisis. Pellentesque elementum nec justo ac dapibus. Curabitur id 
-        efficitur libero. Vivamus dictum nisi eget odio ultricies, non porta lacus imperdiet.
-      </p>
-      <p>
-        Maecenas laoreet, nibh quis congue efficitur, tortor lectus consectetur velit, sed 
-        faucibus mauris lorem non urna. Sed dignissim mauris id arcu ultricies viverra. 
-        Integer non magna non dolor sagittis molestie ut nec ipsum.
-      </p>
-      <p>
-        Fusce volutpat eros eu ultricies venenatis. Aliquam erat volutpat. Vivamus lorem 
-        turpis, pellentesque ut mi eu, iaculis congue elit. Sed ac fermentum orci.
-      </p>
-    </div>
-
-    <div class="info-carousel">
-      <div class="carousel">
-        <div class="carousel-slide"><img src="photos/st-1.jpg" alt=""></div>
-        <div class="carousel-slide"><img src="photos/st-2.jpg" alt=""></div>
-        <div class="carousel-slide"><img src="photos/st-3.jpg" alt=""></div>
-
-        <button class="carousel-prev">‹</button>
-        <button class="carousel-next">›</button>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Terapia Sistêmica — Maristela de Godoy</title>
+    <meta name="description" content="Terapia Sistêmica com foco em relações familiares, casal e rede de apoio." />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mini-pages.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <div class="brand">
+          <img class="brand-photo" src="./photos/logo maristela.jpg" alt="Maristela de Godoy">
+          <div>
+            <h1>Maristela de Godoy</h1>
+            <p class="small-muted">Psicóloga · CRP 07/20890</p>
+          </div>
+        </div>
       </div>
-    </div>
-
-  </div>
-</section>
-
-<section class="panel" data-theme="soft">
-  <div class="wrap">
-    <a href="https://api.whatsapp.com/send?phone=SEUNUMERO" class="btn primary full">
-      Agendar Consulta
-    </a>
-  </div>
-</section>
-</main>
-
-<script src="./carousel.js"></script>
-</body>
+    </header>
+    <main class="wrap mini-page">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Início</a>
+        <span aria-hidden="true">/</span>
+        <span>Terapia Sistêmica</span>
+      </nav>
+      <section class="mini-grid">
+        <article class="mini-left">
+          <h2>Terapia Sistêmica</h2>
+          <p class="muted">A Terapia Sistêmica foca nas relações entre pessoas — família, casal, redes sociais — entendendo sintomas e conflitos como manifestações de padrões relacionais. Trabalhamos com intervenções que visam transformar essas dinâmicas.</p>
+          <p>O processo terapêutico busca promover mudanças nos padrões de interação, fortalecer recursos de enfrentamento e melhorar a comunicação entre membros do sistema.</p>
+          <ul class="list">
+            <li>Indicações: conflitos familiares, dificuldades conjugais, transições familiares.</li>
+            <li>Formato: atendimentos individuais, familiares ou de casal, presenciais e online.</li>
+          </ul>
+        </article>
+        <aside class="mini-right">
+          <div class="image-carousel" data-autoplay="true">
+            <div class="carousel-track">
+              <img src="./photos/sistemica1.png" alt="Sessão familiar" loading="lazy">
+              <img src="./photos/sistemica2.png" alt="Dinâmica de casal" loading="lazy">
+              <img src="./photos/sistemica3.png" alt="Atividade terapêutica" loading="lazy">
+            </div>
+            <div class="carousel-controls">
+              <button class="carousel-prev btn ghost" aria-label="Imagem anterior">‹</button>
+              <div class="carousel-dots" role="tablist" aria-label="Navegação de imagens"></div>
+              <button class="carousel-next btn ghost" aria-label="Próxima imagem">›</button>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </main>
+    <script src="mini-pages.js"></script>
+  </body>
 </html>
