@@ -65,3 +65,94 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 panels.forEach(p => observer.observe(p));
+
+// Depoimentos — carrossel simples, acessível e responsivo
+(function(){
+  const section = document.getElementById("depoimentos");
+  if (!section) return;
+
+  const track = section.querySelector(".testimonials-track");
+  const cards = Array.from(section.querySelectorAll(".testi-card"));
+  const prevBtn = section.querySelector(".testi-prev");
+  const nextBtn = section.querySelector(".testi-next");
+  const dotsContainer = section.querySelector(".testi-dots");
+
+  let index = 0;
+  const total = cards.length;
+  let autoplayTimer = null;
+  const AUTOPLAY_DELAY = 6000;
+
+  // create dots
+  cards.forEach((_, i) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.setAttribute("aria-selected", i === 0 ? "true" : "false");
+    b.setAttribute("aria-label", `Depoimento ${i+1}`);
+    b.addEventListener("click", () => goTo(i));
+    dotsContainer.appendChild(b);
+  });
+  const dots = Array.from(dotsContainer.children);
+
+  function update(){
+    const width = section.querySelector(".testimonials-wrap").offsetWidth;
+    track.style.transform = `translateX(-${index * width}px)`;
+    dots.forEach((d, i) => d.setAttribute("aria-selected", i === index ? "true" : "false"));
+  }
+
+  function goTo(i){
+    index = Math.max(0, Math.min(i, total - 1));
+    update();
+    restartAutoplay();
+  }
+  function prev(){ goTo(index - 1) }
+  function next(){ goTo(index + 1) }
+
+  // keyboard navigation
+  section.addEventListener("keydown", (ev) => {
+    if (ev.key === "ArrowLeft") prev();
+    if (ev.key === "ArrowRight") next();
+  });
+
+  // touch support (swipe)
+  let startX = null;
+  const wrap = section.querySelector(".testimonials-wrap");
+  wrap.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; });
+  wrap.addEventListener("touchend", (e) => {
+    if (startX === null) return;
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) next(); else prev();
+    }
+    startX = null;
+  });
+
+  // autoplay
+  function startAutoplay(){
+    if (autoplayTimer) clearInterval(autoplayTimer);
+    autoplayTimer = setInterval(() => {
+      index = (index + 1) % total;
+      update();
+    }, AUTOPLAY_DELAY);
+  }
+  function restartAutoplay(){ startAutoplay(); }
+
+  // buttons
+  if (prevBtn) prevBtn.addEventListener("click", prev);
+  if (nextBtn) nextBtn.addEventListener("click", next);
+
+  // ensure update on resize (recalculate width)
+  window.addEventListener("resize", () => {
+    // small debounce
+    clearTimeout(window._testimonialResize);
+    window._testimonialResize = setTimeout(update, 120);
+  });
+
+  // init
+  update();
+  startAutoplay();
+
+  // reveal animation: if using the site's IntersectionObserver, we keep consistency
+  // but ensure the section can be focused for keyboard controls
+  wrap.setAttribute("tabindex","0");
+})();
