@@ -1,65 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>EMDR</title>
-  <link rel="stylesheet" href="./style.css">
-</head>
-
-<body>
-<header class="site-header">
-  <div class="wrap header-inner">
-    <div class="brand">
-      <h1>EMDR</h1>
-      <p class="small-muted">Maristela de Godoy · Psicóloga</p>
-    </div>
-  </div>
-</header>
-
-<main>
-<section class="panel" data-theme="light">
-  <div class="wrap info-grid">
-
-    <div class="info-text">
-      <h2>EMDR</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fermentum justo vel 
-        blandit cursus. Integer mattis sapien sed leo blandit, eu vestibulum justo viverra.
-      </p>
-      <p>
-        Suspendisse potenti. Fusce eu aliquet ex. Suspendisse pulvinar, nisl vitae tincidunt 
-        feugiat, leo ex pretium neque, non convallis ligula odio id mi.
-      </p>
-      <p>
-        Aliquam bibendum eu odio sit amet interdum. Vestibulum pharetra, libero non cursus 
-        dignissim, orci ligula viverra orci, id feugiat magna dolor in nisl.
-      </p>
-    </div>
-
-    <div class="info-carousel">
-      <div class="carousel">
-        <div class="carousel-slide"><img src="photos/emdr-1.jpg" alt=""></div>
-        <div class="carousel-slide"><img src="photos/emdr-2.jpg" alt=""></div>
-        <div class="carousel-slide"><img src="photos/emdr-3.jpg" alt=""></div>
-
-        <button class="carousel-prev">‹</button>
-        <button class="carousel-next">›</button>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>EMDR — Maristela de Godoy</title>
+    <meta name="description" content="EMDR com Maristela de Godoy — processamento de memórias traumáticas com estimulação bilateral." />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mini-pages.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <div class="brand">
+          <img class="brand-photo" src="./photos/logo maristela.jpg" alt="Maristela de Godoy">
+          <div>
+            <h1>Maristela de Godoy</h1>
+            <p class="small-muted">Psicóloga · CRP 07/20890</p>
+          </div>
+        </div>
       </div>
-    </div>
-
-  </div>
-</section>
-
-<section class="panel" data-theme="soft">
-  <div class="wrap">
-    <a href="https://api.whatsapp.com/send?phone=SEUNUMERO" class="btn primary full">
-      Agendar Consulta
-    </a>
-  </div>
-</section>
-</main>
-
-<script src="./carousel.js"></script>
-</body>
+    </header>
+    <main class="wrap mini-page">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Início</a>
+        <span aria-hidden="true">/</span>
+        <span>EMDR</span>
+      </nav>
+      <section class="mini-grid">
+        <article class="mini-left">
+          <h2>EMDR (Dessensibilização e Reprocessamento por Movimentos Oculares)</h2>
+          <p class="muted">O EMDR é uma intervenção terapêutica indicada para o processamento de memórias traumáticas e experiências que seguem impactando a vida presente. Utilizamos estimulação bilateral sistemática (visual, auditiva ou tátil) para facilitar o processamento adaptativo dessas memórias.</p>
+          <p>O objetivo é reduzir a carga emocional associada às memórias e promover a integração cognitiva e afetiva. O trabalho é conduzido com ética, segurança e ritmo respeitando os limites do paciente.</p>
+          <ul class="list">
+            <li>Indicações: trauma, sintomas pós-traumáticos, lembranças intrusivas, ansiedade intensa.</li>
+            <li>Formato: sessões presenciais ou online; protocolo adaptado às necessidades do paciente.</li>
+          </ul>
+        </article>
+        <aside class="mini-right">
+          <div class="image-carousel" data-autoplay="true">
+            <div class="carousel-track">
+              <img src="./photos/emdr1.png" alt="Sessão EMDR" loading="lazy">
+              <img src="./photos/emdr2.png" alt="Estimulação bilateral" loading="lazy">
+              <img src="./photos/emdr3.png" alt="Ambiente acolhedor" loading="lazy">
+            </div>
+            <div class="carousel-controls">
+              <button class="carousel-prev btn ghost" aria-label="Imagem anterior">‹</button>
+              <div class="carousel-dots" role="tablist" aria-label="Navegação de imagens"></div>
+              <button class="carousel-next btn ghost" aria-label="Próxima imagem">›</button>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </main>
+    <script src="mini-pages.js"></script>
+  </body>
 </html>
