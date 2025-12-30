@@ -208,6 +208,7 @@ body{
   .hero-grid{grid-template-columns:1fr}
   .about-grid{grid-template-columns:1fr}
   .approach-grid{grid-template-columns:1fr}
+  .tiles{gap:0.5rem}
   .services-grid{grid-template-columns:1fr}
   .schedule-grid{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr}
