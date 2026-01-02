@@ -36,7 +36,7 @@ body{
 /* Padroniza imagens do site */
 img {
   width: 100%;
-  max-width: 520px;
+  max-width: 400px;
   
   /* garante padrão visual */
   aspect-ratio: 3 / 4;   /* pode trocar para 1/1, 16/9, 3/4 etc */
