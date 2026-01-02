@@ -151,7 +151,6 @@ img {
   align-items:center;
 }
 
-
 .approach-grid,
 .contact-grid{
   display:grid;
@@ -271,6 +270,16 @@ img {
   .schedule-grid,
   .contact-grid{
     grid-template-columns:1fr;
+  }
+
+  .about-photo,
+  .schedule-photo{
+    grid-row: 2;
+  }
+
+  .about-content,
+  .schedule-content{
+    grid-row: 1;
   }
 
   .services-grid{grid-template-columns:repeat(2,1fr)}
