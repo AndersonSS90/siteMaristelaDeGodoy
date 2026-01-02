@@ -1,0 +1,276 @@
+/* =====================================================
+   VARIÁVEIS
+   ===================================================== */
+:root{
+  --bordo:#BB2F38;
+  --vermelho-quente:#BB2531;
+  --amarelo:#E8C46C;
+  --dourado:#D69F2A;
+
+  --bg:#fbf7f6;
+  --bg-soft:rgba(230,200,120,.14);
+  --bg-accent:rgba(187,47,56,.06);
+  --card:#fff;
+  --text:#2b2b2b;
+  --muted:#6d6d6d;
+
+  --radius:16px;
+  --max:1200px;
+  --ease:cubic-bezier(.2,.9,.3,1);
+}
+
+/* =====================================================
+   RESET + BASE
+   ===================================================== */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;height:100%}
+html{font-size:clamp(14px,1.1vw,16px)}
+body{
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+  background:linear-gradient(180deg,var(--bg),#f3efe8);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  scroll-behavior:smooth;
+}
+img{max-width:100%;height:auto;display:block}
+
+/* =====================================================
+   UTILIDADES
+   ===================================================== */
+.wrap{max-width:var(--max);margin:0 auto;padding:2rem}
+.kicker{font-size:.78rem;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.lead{color:var(--muted);font-size:clamp(.95rem,2.5vw,1.05rem);line-height:1.6}
+.small-muted{color:var(--muted);font-size:.9rem}
+
+/* =====================================================
+   BOTÕES
+   ===================================================== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  padding:.7rem 1rem;
+  border-radius:999px;
+  font-weight:600;
+  border:1px solid transparent;
+  cursor:pointer;
+  text-decoration:none;
+  transition:.2s var(--ease);
+}
+.btn:hover{transform:translateY(-3px)}
+.btn.primary{
+  background:linear-gradient(180deg,var(--bordo),rgba(187,47,56,.9));
+  color:#fff;
+  box-shadow:0 14px 34px rgba(187,47,56,.12);
+}
+.btn.primary.alt{
+  background:linear-gradient(180deg,var(--dourado),rgba(214,159,42,.95));
+  color:#fff;
+}
+.btn.ghost{
+  background:none;
+  border:1px solid rgba(187,47,56,.15);
+  color:var(--bordo);
+}
+.btn.full{width:100%}
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:30;
+  backdrop-filter:blur(6px);
+  background:rgba(255,255,255,.9);
+  border-bottom:1px solid rgba(0,0,0,.05);
+}
+.header-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.brand{display:flex;align-items:center;gap:1rem}
+.brand img{width:56px;height:56px;border-radius:12px;object-fit:cover}
+.brand h1{font-size:1rem;color:var(--bordo);margin:0}
+.top-nav{display:flex;gap:1rem}
+.top-nav a{text-decoration:none;color:var(--muted)}
+.top-nav a:hover{color:var(--bordo)}
+.top-nav .cta{
+  background:var(--amarelo);
+  color:var(--bordo);
+  padding:.4rem .8rem;
+  border-radius:10px;
+  font-weight:700;
+}
+
+/* =====================================================
+   HERO
+   ===================================================== */
+.panel{padding:4.5rem 0}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:2rem;
+  align-items:center;
+}
+.hero h2{
+  font-size:clamp(1.6rem,4vw,2.2rem);
+  margin:.5rem 0 1rem;
+  color:var(--bordo);
+}
+.hero-photo img{
+  max-height:520px;
+  border-radius:20px;
+  object-fit:cover;
+  box-shadow:0 26px 60px rgba(0,0,0,.08);
+}
+
+/* =====================================================
+   ABOUT / APPROACH
+   ===================================================== */
+.about-grid,
+.approach-grid,
+.schedule-grid,
+.contact-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,420px);
+  gap:1.5rem;
+  align-items:center;
+}
+
+.tiles{display:flex;gap:1rem;margin-top:1rem}
+.tile{
+  flex:1;
+  background:#fff;
+  padding:1rem;
+  border-radius:12px;
+  text-align:center;
+  box-shadow:0 10px 28px rgba(0,0,0,.04);
+}
+.tile img{width:48px;height:48px;border-radius:10px;margin:0 auto .5rem}
+
+/* =====================================================
+   SERVIÇOS
+   ===================================================== */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.2rem;
+}
+.svc-card{
+  background:var(--card);
+  padding:1rem;
+  border-radius:14px;
+  box-shadow:0 14px 36px rgba(0,0,0,.04);
+}
+.svc-card img{height:200px;border-radius:10px;object-fit:cover}
+
+/* =====================================================
+   DEPOIMENTOS
+   ===================================================== */
+.testimonials-wrap{
+  background:#fff;
+  padding:1.1rem;
+  border-radius:12px;
+  box-shadow:0 14px 36px rgba(0,0,0,.03);
+}
+.testimonials-track{display:flex;gap:1rem}
+.testi-card{flex:0 0 100%}
+.mention{
+  font-style:italic;
+  padding:1rem;
+  background:rgba(0,0,0,.03);
+  border-radius:10px;
+}
+.depo-name{
+  text-align:right;
+  font-weight:800;
+  color:var(--bordo);
+  font-size:.9rem;
+}
+
+/* =====================================================
+   FORMULÁRIO
+   ===================================================== */
+.lead-form{
+  background:#fff;
+  padding:1.2rem;
+  border-radius:12px;
+  display:flex;
+  flex-direction:column;
+  gap:.8rem;
+}
+.lead-form input,
+.lead-form textarea,
+.lead-form select{
+  padding:.65rem .8rem;
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,.08);
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+.site-footer{
+  border-top:1px solid rgba(0,0,0,.05);
+  padding:1.6rem 0;
+}
+.footer-grid{
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+}
+
+/* =====================================================
+   WHATSAPP
+   ===================================================== */
+#whatsapp-floating{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  background:linear-gradient(180deg,var(--vermelho-quente),var(--bordo));
+  display:grid;
+  place-items:center;
+  box-shadow:0 18px 42px rgba(0,0,0,.12);
+}
+
+/* =====================================================
+   RESPONSIVIDADE
+   ===================================================== */
+
+/* ≤ 900px */
+@media (max-width:900px){
+  .hero-grid,
+  .about-grid,
+  .approach-grid,
+  .schedule-grid,
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ≤ 600px */
+@media (max-width:600px){
+  .wrap{padding:1rem}
+  .tiles{flex-direction:column}
+  .services-grid{grid-template-columns:1fr}
+  .footer-grid{flex-direction:column;text-align:center}
+  .top-nav{display:none}
+}
+
+/* ≤ 360px */
+@media (max-width:360px){
+  .btn{font-size:.9rem;padding:.6rem .9rem}
+  #whatsapp-floating{width:48px;height:48px}
+}
+
+/* ≥ 1200px */
+@media (min-width:1200px){
+  .panel{padding:5.5rem 0}
+}
