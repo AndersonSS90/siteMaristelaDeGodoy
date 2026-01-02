@@ -39,7 +39,7 @@ img {
   max-width: 520px;
   
   /* garante padrão visual */
-  aspect-ratio: 9 / 16;   /* pode trocar para 1/1, 16/9, 3/4 etc */
+  aspect-ratio: 3 / 4;   /* pode trocar para 1/1, 16/9, 3/4 etc */
   height: auto;
 
   /* evita distorção */
