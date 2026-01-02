@@ -32,7 +32,22 @@ body{
   -webkit-font-smoothing:antialiased;
   scroll-behavior:smooth;
 }
-img{max-width:100%;height:auto;display:block}
+
+/* Padroniza imagens do site */
+img {
+  width: 100%;
+  max-width: 100%;
+  
+  /* garante padrão visual */
+  aspect-ratio: 4 / 3;   /* pode trocar para 1/1, 16/9, 3/4 etc */
+  height: auto;
+
+  /* evita distorção */
+  object-fit: cover;
+
+  /* bordas arredondadas globais */
+  border-radius: var(--radius, 14px);
+}
 
 /* =====================================================
    UTILIDADES
