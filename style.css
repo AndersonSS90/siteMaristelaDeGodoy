@@ -144,8 +144,15 @@ img {
    ABOUT / APPROACH
    ===================================================== */
 .about-grid,
+.schedule-grid{
+  display:grid;
+  grid-template-columns:minmax(0,420px) minmax(0,1fr);
+  gap:1.5rem;
+  align-items:center;
+}
+
+
 .approach-grid,
-.schedule-grid,
 .contact-grid{
   display:grid;
   grid-template-columns:minmax(0,1fr) minmax(0,420px);
