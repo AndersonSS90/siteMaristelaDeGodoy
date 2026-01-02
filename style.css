@@ -43,7 +43,7 @@ img {
   height: auto;
 
   /* evita distorção */
-  object-fit: contain;
+  object-fit: fill;
 
   /* bordas arredondadas globais */
   border-radius: var(--radius, 14px);
