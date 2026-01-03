@@ -209,6 +209,32 @@ img {
   color:var(--bordo);
   font-size:.9rem;
 }
+/* container dos pontinhos */
+.testi-dots{
+  display: flex;
+  gap: .4rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+/* estilo base dos botões */
+.testi-dots button{
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid var(--bordo);
+  background: #fff;
+  cursor: pointer;
+  transition: .2s ease;
+}
+/* selecionado = vermelho */
+.testi-dots button[aria-selected="true"]{
+  background: var(--bordo);
+}
+/* não selecionado = branco */
+.testi-dots button[aria-selected="false"]{
+  background: #fff;
+}
+
 
 /* =====================================================
    FORMULÁRIO
@@ -298,9 +324,4 @@ img {
 @media (max-width:360px){
   .btn{font-size:.9rem;padding:.6rem .9rem}
   #whatsapp-floating{width:48px;height:48px}
-}
-
-/* ≥ 1200px */
-@media (min-width:1200px){
-  .panel{padding:5.5rem 0}
 }
