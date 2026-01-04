@@ -209,6 +209,13 @@ img {
   color:var(--bordo);
   font-size:.9rem;
 }
+.testi-controls{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+  margin-top: 1rem;
+}
 /* container dos pontinhos */
 .testi-dots{
   display: flex;
