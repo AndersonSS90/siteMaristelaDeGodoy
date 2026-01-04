@@ -76,6 +76,7 @@ panels.forEach(p => observer.observe(p));
   const prevBtn = section.querySelector(".testi-prev");
   const nextBtn = section.querySelector(".testi-next");
   const dotsContainer = section.querySelector(".testi-dots");
+  const wrap = section.querySelector(".testimonials-wrap");
 
   let index = 0;
   const total = cards.length;
@@ -91,12 +92,36 @@ panels.forEach(p => observer.observe(p));
     b.addEventListener("click", () => goTo(i));
     dotsContainer.appendChild(b);
   });
+
   const dots = Array.from(dotsContainer.children);
 
+  // ============= ALTURA FIXA: calcula maior depoimento =============
+  function setFixedHeight(){
+    let max = 0;
+
+    cards.forEach(card => {
+      // força exibir temporariamente só pra medir
+      const prev = card.style.display;
+      card.style.display = "block";
+      const h = card.offsetHeight;
+      if (h > max) max = h;
+      card.style.display = prev;
+    });
+
+    wrap.style.minHeight = max + "px";
+  }
+
+  // ============= UPDATE VISUAL =============
   function update(){
-    const width = section.querySelector(".testimonials-wrap").offsetWidth;
-    track.style.transform = `translateX(-${index * width}px)`;
-    dots.forEach((d, i) => d.setAttribute("aria-selected", i === index ? "true" : "false"));
+    dots.forEach((d, i) =>
+      d.setAttribute("aria-selected", i === index ? "true" : "false")
+    );
+
+    cards.forEach((card, i) => {
+      const active = i === index;
+      card.style.display = active ? "block" : "none";
+      card.setAttribute("aria-hidden", active ? "false" : "true");
+    });
   }
 
   function goTo(i){
@@ -104,8 +129,9 @@ panels.forEach(p => observer.observe(p));
     update();
     restartAutoplay();
   }
-  function prev(){ goTo(index - 1) }
-  function next(){ goTo(index + 1) }
+
+  function prev(){ goTo(index - 1); }
+  function next(){ goTo(index + 1); }
 
   // keyboard navigation
   section.addEventListener("keydown", (ev) => {
@@ -115,44 +141,51 @@ panels.forEach(p => observer.observe(p));
 
   // touch support (swipe)
   let startX = null;
-  const wrap = section.querySelector(".testimonials-wrap");
-  wrap.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; });
+  wrap.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
   wrap.addEventListener("touchend", (e) => {
     if (startX === null) return;
-    const endX = e.changedTouches[0].clientX;
-    const diff = startX - endX;
+    const diff = startX - e.changedTouches[0].clientX;
+
     if (Math.abs(diff) > 40) {
-      if (diff > 0) next(); else prev();
+      if (diff > 0) next();
+      else prev();
     }
+
     startX = null;
   });
 
   // autoplay
   function startAutoplay(){
     if (autoplayTimer) clearInterval(autoplayTimer);
+
     autoplayTimer = setInterval(() => {
       index = (index + 1) % total;
       update();
     }, AUTOPLAY_DELAY);
   }
-  function restartAutoplay(){ startAutoplay(); }
 
-  // buttons
+  function restartAutoplay(){
+    startAutoplay();
+  }
+
+  // Buttons
   if (prevBtn) prevBtn.addEventListener("click", prev);
   if (nextBtn) nextBtn.addEventListener("click", next);
 
-  // ensure update on resize (recalculate width)
-  window.addEventListener("resize", () => {
-    // small debounce
-    clearTimeout(window._testimonialResize);
-    window._testimonialResize = setTimeout(update, 120);
-  });
-
-  // init
+  // INIT
   update();
+  setFixedHeight();
   startAutoplay();
 
-  // reveal animation: if using the site's IntersectionObserver, we keep consistency
-  // but ensure the section can be focused for keyboard controls
+  // Recalcular altura ao redimensionar (responsivo)
+  window.addEventListener("resize", () => {
+    clearTimeout(window._testimonialHeight);
+    window._testimonialHeight = setTimeout(setFixedHeight, 150);
+  });
+
+  // acessibilidade
   wrap.setAttribute("tabindex","0");
 })();
