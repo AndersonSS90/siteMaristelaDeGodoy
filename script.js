@@ -25,16 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const float = document.getElementById("whatsapp-floating");
   if (float) float.setAttribute("href", whatsappUrlFor(DEFAULT_MESSAGE));
-
-  // cards serviços
-  document.querySelectorAll(".svc-card .link").forEach(a => {
-    a.addEventListener("click", (e) => {
-      e.preventDefault();
-      const service = a.dataset.service || "Serviço";
-      const text = `Olá Maristela, tenho interesse em: ${service}. Pode me chamar para agendar?`;
-      window.open(whatsappUrlFor(text), "_blank");
-    });
-  });
 });
 
 /* formulário de leads -> abre WhatsApp com mensagem preenchida */
