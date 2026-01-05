@@ -332,3 +332,9 @@ img {
   .btn{font-size:.9rem;padding:.6rem .9rem}
   #whatsapp-floating{width:48px;height:48px}
 }
+
+#btn-whatsapp-hero,
+#btn-whatsapp-about,
+#btn-whatsapp-approach{
+  display: none;
+}
